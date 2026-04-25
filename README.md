@@ -88,49 +88,36 @@
                                            v                 v
                                     [ Firestore ]       [ React Dashboard ]
 
----
+
 
 ## 🖼️ ภาพตัวอย่างระบบ (System Preview)
+```
+> **💡 เคล็ดลับ:** หากรูปภาพไม่แสดงผล ให้ตรวจสอบลิงก์ใน GitHub หรือใช้รูปแบบ `<img src="...">` ในการจัดการ
 
 | โหมดกลางวัน (Light Mode) | โหมดกลางคืน (Dark Mode) |
 | :---: | :---: |
-|<img width="1656" height="899" alt="สกรีนช็อต 2026-04-21 123414" src="https://github.com/user-attachments/assets/d5d304e3-67bb-474b-ab8e-23c587770ea0" />|<img width="1825" height="906" alt="สกรีนช็อต 2026-04-19 222631" src="https://github.com/user-attachments/assets/9b65fdc2-eaa9-4e12-8a58-3ffeb093b96e" />  |
+|<img width="1656" height="899" alt="สกรีนช็อต 2026-04-21 123414" src="https://github.com/user-attachments/assets/d5d304e3-67bb-474b-ab8e-23c587770ea0" />|<img width="1825" height="906" alt="สกรีนช็อต 2026-04-19 222631" src="https://github.com/user-attachments/assets/9b65fdc2-eaa9-4e12-8a58-3ffeb093b96e" />  |
 
 ---
 
 ## 🛠 การแก้ไขปัญหาเบื้องต้น (Troubleshooting)
-* **กราฟไม่ขยับ:** ตรวจสอบว่า ESP32 เชื่อมต่อ WiFi และ MQTT Broker สำเร็จหรือไม่ (เช็คใน Serial Monitor)
-* **หน้าเว็บเข้าไม่ได้:** ตรวจสอบว่า Docker Container `my-farm` ยังรันอยู่หรือไม่ โดยใช้คำสั่ง `docker ps`
-* **ข้อมูลไม่อัปเดต:** เช็คการเชื่อมต่ออินเทอร์เน็ตของ Raspberry Pi เพื่อให้สามารถส่งข้อมูลไปที่ Firebase ได้
+
+| ปัญหา | วิธีแก้ไข |
+| :--- | :--- |
+| **กราฟไม่ขยับ** | ตรวจสอบว่า ESP32 เชื่อมต่อ WiFi และ MQTT Broker สำเร็จหรือไม่ (เช็คใน Serial Monitor) |
+| **หน้าเว็บเข้าไม่ได้** | ตรวจสอบว่า Docker Container `my-farm` ยังรันอยู่หรือไม่ โดยใช้คำสั่ง `docker ps` |
+| **ข้อมูลไม่อัปเดต** | เช็คการเชื่อมต่ออินเทอร์เน็ตของ Raspberry Pi เพื่อให้สามารถส่งข้อมูลไปที่ Firebase ได้ |
+
+> **หมายเหตุ:** ปัญหาเหล่านี้เป็นปัญหาที่พบบ่อยที่สุด หากยังไม่สามารถแก้ไขได้ ให้ลองตรวจสอบ Network Configurations
 
 ---
 
 ## 🚀 ขั้นตอนการติดตั้งและรันระบบ (Installation Guide)
 
 ### 📌 สิ่งที่ต้องเตรียม (Prerequisites)
-* Raspberry Pi ที่ติดตั้ง **Docker** เรียบร้อยแล้ว
-* ไฟล์ `serviceAccountKey.json` จาก Firebase Console
-* อุปกรณ์ ESP32 ที่เบิร์นโค้ดพร้อมเชื่อมต่อ WiFi
 
----
-
-### Step 1: Clone Repository
-```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-cd YOUR_REPO_NAME
-
----
-
-### Step 2: ตั้งค่า Firebase
-นำไฟล์ serviceAccountKey.json ไปวางไว้ในโฟลเดอร์ backend/
-
----
-
-### Step 3: Build และรันด้วย Docker
-Bash
-docker build -t smart-farm-app .
-docker run -d -p 5000:5000 --name my-farm --restart always smart-farm-app
-🔑 ข้อมูลเข้าสู่ระบบทดสอบ (Test Credentials)
-URL: http://<YOUR_PI_IP>:5000
-
-Admin: admin / password: 1234
+```mermaid
+graph TD
+    A[Raspberry Pi] -->|ติดตั้ง| B(Docker)
+    C[Firebase Console] -->|ดาวน์โหลด| D(serviceAccountKey.json)
+    E[ESP32] -->|เบิร์นโค้ด| F(WiFi Connected)
