@@ -129,8 +129,13 @@ cd YOUR_REPO_NAME
 
 ### Step 3: Build และรันด้วย Docker
 Bash
+
 docker build -t smart-farm-app .
+
 docker run -d -p 5000:5000 --name my-farm --restart always smart-farm-app
+
 🔑 ข้อมูลเข้าสู่ระบบทดสอบ (Test Credentials)
+
 URL: http://<YOUR_PI_IP>:5000
+
 Admin: admin / password: 1234
