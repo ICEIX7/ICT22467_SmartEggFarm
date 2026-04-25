@@ -77,6 +77,17 @@
 * **Background:** `#F8FAFC` (Slate White)
     * ใช้สีพื้นหลังสีสว่างเพื่อให้ตัวเลขเซนเซอร์และกราฟอ่านง่ายที่สุด
 
+      ## 📊 แผนผังการไหลของข้อมูล (Data Flow)
+
+```text
+[ Sensors ] ---> [ ESP32 ] --(MQTT/JSON)--> [ Raspberry Pi (Broker) ]
+                                                   |
+                                            [ Node.js Backend ]
+                                             /             \
+                             (Save Data)    /               \   (Serve API)
+                                           v                 v
+                                    [ Firestore ]       [ React Dashboard ]
+
 ---
 
 ## 🖼️ ภาพตัวอย่างระบบ (System Preview)
@@ -103,10 +114,11 @@
 ```bash
 git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
 cd YOUR_REPO_NAME
-Step 2: ตั้งค่า Firebase
+
+### Step 2: ตั้งค่า Firebase
 นำไฟล์ serviceAccountKey.json ไปวางไว้ในโฟลเดอร์ backend/
 
-Step 3: Build และรันด้วย Docker
+### Step 3: Build และรันด้วย Docker
 Bash
 docker build -t smart-farm-app .
 docker run -d -p 5000:5000 --name my-farm --restart always smart-farm-app
