@@ -128,7 +128,7 @@ cd YOUR_REPO_NAME
 ---
 
 ### Step 3: Build และรันด้วย Docker
-Bash
+```bash
 
 docker build -t smart-farm-app .
 
