@@ -83,7 +83,8 @@
 
 | โหมดกลางวัน (Light Mode) | โหมดกลางคืน (Dark Mode) |
 | :---: | :---: |
-| ![Dashboard Light](https://via.placeholder.com/400x250?text=Dashboard+Light+Mode) | ![Dashboard Dark](https://via.placeholder.com/400x250?text=Dashboard+Dark+Mode) |
+|<img width="1656" height="899" alt="สกรีนช็อต 2026-04-21 123414" src="https://github.com/user-attachments/assets/d5d304e3-67bb-474b-ab8e-23c587770ea0" />
+  |<img width="1825" height="906" alt="สกรีนช็อต 2026-04-19 222631" src="https://github.com/user-attachments/assets/9b65fdc2-eaa9-4e12-8a58-3ffeb093b96e" />  |
 
 > **Tip:** คุณสามารถลากรูปภาพ Screenshot จริงของโปรเจกต์คุณมาวางในตารางนี้แทนที่ลิงก์ตัวอย่างได้เลยครับ
 
